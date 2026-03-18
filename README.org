@@ -3,13 +3,15 @@
 [[https://csdiy.wiki/%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/cpp/AUT1400/][csdiy]]
 This is the assignment of AP1400-2
 
+resource come from [[https://github.com/kanzakishigure/AP1400-2.git][here]]. 
+
 * Preparations
 you had better to have the knowledge of cmake and C++,
 learn some basic knowledge of cmake [[https://github.com/zkazure/mastering_cmake][here]]
 
 #+begin_src sh
   sudo apt install cmake make gcc g++ git
-  sudo apt install libgtest-dev libgmock-dev  
+  sudo apt install libgtest-dev libgmock-dev
 #+end_src
 
 
