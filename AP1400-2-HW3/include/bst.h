@@ -35,6 +35,9 @@ class BST {
     Node **find_parrent(int value);
     Node **find_successor(int value);
     bool delete_node(int value);
+
+    BST &operator++();
+    BST operator++(int);
 };
 
 std::ostream &operator<<(std::ostream &os, const BST::Node &node);

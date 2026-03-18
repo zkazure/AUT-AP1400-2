@@ -56,6 +56,17 @@ bool BST::add_node(int value) {
     return true;
 }
 
+BST &BST::operator++() {
+    bfs([](BST::Node *&node) { node->value += 1; });
+    return *this;
+}
+
+BST BST::operator++(int) {
+    BST tmp = *this;
+    bfs([](BST::Node *&node) { node->value += 1; });
+    return tmp;
+}
+
 std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
     os << std::left;
     os << std::setw(17) << &node;
