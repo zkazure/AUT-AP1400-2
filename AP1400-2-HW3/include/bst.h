@@ -1,6 +1,7 @@
 #ifndef BST_H
 #define BST_H
 
+#include <iostream>
 class BST {
   public:
     class Node {
@@ -15,4 +16,8 @@ class BST {
     };
 };
 
+inline std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
+    os << node.value << " " << node.left << " " << node.right;
+    return os;
+}
 #endif // BST_H

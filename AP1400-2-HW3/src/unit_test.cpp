@@ -30,7 +30,7 @@ TEST(HW3Test, TEST3) {
     EXPECT_EQ(default_.left, nullptr);
     EXPECT_EQ(default_.right, nullptr);
 }
-/*
+
 TEST(HW3Test, TEST4) {
 
     BST::Node left{10, nullptr, nullptr};
@@ -45,7 +45,7 @@ TEST(HW3Test, TEST4) {
     std::cout << node << std::endl;
     std::cout << std::string(80, '*') << std::endl;
 }
-
+/*
 TEST(HW3Test, TEST5) {
     BST::Node node{5, nullptr, nullptr};
 
