@@ -288,7 +288,7 @@ namespace algebra
                 x = ero_sum(x, i, - x[j][i]/x[i][i], j);
             }
         }
-
+        std::printf("test.c");
         return x;
     }
 }
