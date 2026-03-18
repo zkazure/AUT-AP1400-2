@@ -13,6 +13,9 @@ class BST {
         Node(const Node &node) = default;
         Node(int value, Node *left, Node *right)
             : value(value), left(left), right(right) {}
+
+        bool operator==(int v) const { return (value == v); }
+        std::strong_ordering operator<=>(int v) const { return (value <=> v); }
     };
 };
 
