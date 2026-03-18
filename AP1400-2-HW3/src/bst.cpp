@@ -1,4 +1,20 @@
 #include "bst.h"
+#include <queue>
+
+void BST::bfs(std::function<void(BST::Node *&node)> func) {
+    std::queue<BST::Node *> que;
+    if (root)
+        que.push(root);
+    while (que.empty() == false) {
+        BST::Node *node = que.front();
+        que.pop();
+        func(node);
+        if (node->left)
+            que.push(node->left);
+        if (node->right)
+            que.push(node->right);
+    }
+}
 
 void BST::destroy_subtree(Node *node) {
     if (!node)

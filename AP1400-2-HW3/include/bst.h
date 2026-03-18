@@ -2,6 +2,7 @@
 #define BST_H
 
 #include <compare>
+#include <functional>
 #include <ostream>
 class BST {
   public:
@@ -29,7 +30,7 @@ class BST {
     ~BST();
 
     Node *&get_root() { return root; }
-    // void bfs(std::function<void(Node *&node)> func);
+    void bfs(std::function<void(Node *&node)> func);
     size_t length();
     bool add_node(int value);
     Node **find_node(int value);
