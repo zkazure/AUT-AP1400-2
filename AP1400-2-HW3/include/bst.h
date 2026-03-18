@@ -5,13 +5,13 @@ class BST {
   public:
     class Node {
       public:
+        int value{0};
+        Node *left{nullptr}, *right{nullptr};
+
         Node() = default;
         Node(const Node &node) = default;
         Node(int value, Node *left, Node *right)
             : value(0), left(left), right(right) {}
-
-        int value;
-        Node *left, *right;
     };
 };
 
