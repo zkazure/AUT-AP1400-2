@@ -1,4 +1,5 @@
 #include "bst.h"
+#include <cstddef>
 #include <queue>
 
 void BST::bfs(std::function<void(BST::Node *&node)> func) {
@@ -14,6 +15,12 @@ void BST::bfs(std::function<void(BST::Node *&node)> func) {
         if (node->right)
             que.push(node->right);
     }
+}
+
+size_t BST::length() {
+    size_t len = 0;
+    bfs([&len](BST::Node *&node) { len++; });
+    return len;
 }
 
 void BST::destroy_subtree(Node *node) {
