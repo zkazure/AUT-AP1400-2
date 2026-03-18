@@ -11,7 +11,7 @@ class BST {
         Node() = default;
         Node(const Node &node) = default;
         Node(int value, Node *left, Node *right)
-            : value(0), left(left), right(right) {}
+            : value(value), left(left), right(right) {}
     };
 };
 
