@@ -56,6 +56,26 @@ bool BST::add_node(int value) {
     return true;
 }
 
+BST::Node **BST::find_node(int value) {
+    if (root == nullptr)
+        return nullptr;
+
+    if (value == *root)
+        return &root;
+
+    BST::Node *curr = root;
+    BST::Node *prev = nullptr;
+    while (curr) {
+        prev = curr;
+        curr = (value < *curr) ? curr->left : curr->right;
+        if (curr && value == *curr) {
+            return (prev->left == curr) ? &(prev->left) : &(prev->right);
+        }
+    }
+
+    return nullptr;
+}
+
 BST &BST::operator++() {
     bfs([](BST::Node *&node) { node->value += 1; });
     return *this;
