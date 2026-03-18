@@ -18,6 +18,21 @@ class BST {
         bool operator==(int v) const { return (value == v); }
         std::strong_ordering operator<=>(int v) const { return (value <=> v); }
     };
+
+  private:
+    Node *root;
+
+  public:
+    BST() = default;
+
+    Node *&get_root() { return root; }
+    // void bfs(std::function<void(Node *&node)> func);
+    size_t length();
+    bool add_node(int value);
+    Node **find_node(int value);
+    Node **find_parrent(int value);
+    Node **find_successor(int value);
+    bool delete_node(int value);
 };
 
 inline std::ostream &operator<<(std::ostream &os, const BST::Node &node) {

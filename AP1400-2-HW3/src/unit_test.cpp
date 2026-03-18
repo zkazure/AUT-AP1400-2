@@ -71,12 +71,12 @@ TEST(HW3Test, TEST5) {
     EXPECT_TRUE(5 == node);
     EXPECT_FALSE(3 == node);
 }
-/*
+
 TEST(HW3Test, TEST6) {
     BST bst{};
     EXPECT_EQ(bst.get_root(), nullptr);
 }
-
+/*
 TEST(HW3Test, TEST7) {
     BST bst{};
     bst.add_node(10);
