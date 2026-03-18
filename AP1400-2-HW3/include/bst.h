@@ -20,8 +20,11 @@ class BST {
     };
 };
 
-inline std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
-    os << node.value << " " << node.left << " " << node.right;
+static std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
+    os << std::ios::hex << &node << "   =>";
+    os << node.value << "      ";
+    os << "left: " << std::ios::hex << node.left << std::ios::right << "     ";
+    os << "right: " << std::ios::hex << node.right << std::endl;
     return os;
 }
 #endif // BST_H
