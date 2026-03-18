@@ -28,8 +28,8 @@ class BST {
     ~BST();
 
     Node *&get_root() { return root; }
-    void bfs(std::function<void(Node *&node)> func);
-    size_t length();
+    void bfs(std::function<void(Node *&node)> func) const;
+    size_t length() const;
     bool add_node(int value);
     Node **find_node(int value);
     Node **find_parrent(int value);
@@ -37,10 +37,7 @@ class BST {
     bool delete_node(int value);
 };
 
-inline std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
-    os << &node << " => " << node.value << "  ";
-    os << "left: " << node.left << " ";
-    os << "right: " << node.right;
-    return os;
-}
+std::ostream &operator<<(std::ostream &os, const BST::Node &node);
+
+std::ostream &operator<<(std::ostream &os, BST &bst);
 #endif // BST_H

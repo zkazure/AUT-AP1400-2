@@ -1,9 +1,11 @@
 #include "bst.h"
 #include <cstddef>
+#include <iomanip>
 #include <queue>
+#include <string>
 #include <vector>
 
-void BST::bfs(std::function<void(BST::Node *&node)> func) {
+void BST::bfs(std::function<void(BST::Node *&node)> func) const {
     std::queue<BST::Node *> que;
     if (root)
         que.push(root);
@@ -18,7 +20,7 @@ void BST::bfs(std::function<void(BST::Node *&node)> func) {
     }
 }
 
-size_t BST::length() {
+size_t BST::length() const {
     size_t len = 0;
     bfs([&len](BST::Node *&node) { len++; });
     return len;
@@ -52,4 +54,24 @@ bool BST::add_node(int value) {
         prev->right = node;
 
     return true;
+}
+
+std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
+    os << std::left;
+    os << std::setw(17) << &node;
+    os << "=> value:" << std::setw(10) << node.value;
+    os << "left:" << std::setw(16) << node.left;
+    os << "right:" << std::setw(16) << node.right;
+    return os;
+}
+
+std::ostream &operator<<(std::ostream &os, BST &bst) {
+    std::string boundary = "***************************************************"
+                           "*****************************";
+
+    os << boundary << "\n";
+    bst.bfs([&os](BST::Node *&node) { os << *node << "\n"; });
+    os << "binary search tree size: " << bst.length() << "\n";
+    os << boundary << "\n";
+    return os;
 }
