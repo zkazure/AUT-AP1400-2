@@ -1,6 +1,7 @@
 #include "bst.h"
 #include <cstddef>
 #include <queue>
+#include <vector>
 
 void BST::bfs(std::function<void(BST::Node *&node)> func) {
     std::queue<BST::Node *> que;
@@ -23,18 +24,11 @@ size_t BST::length() {
     return len;
 }
 
-void BST::destroy_subtree(Node *node) {
-    if (!node)
-        return;
-
-    destroy_subtree(node->left);
-    destroy_subtree(node->right);
-    delete (node);
-}
-
 BST::~BST() {
-    destroy_subtree(root);
-    root = nullptr;
+    std::vector<BST::Node *> nodes;
+    bfs([&nodes](BST::Node *&node) { nodes.push_back(node); });
+    for (auto node : nodes)
+        delete node;
 }
 
 bool BST::add_node(int value) {

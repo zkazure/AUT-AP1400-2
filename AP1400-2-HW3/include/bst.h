@@ -23,8 +23,6 @@ class BST {
   private:
     Node *root{nullptr};
 
-    void destroy_subtree(Node *n);
-
   public:
     BST() = default;
     ~BST();
