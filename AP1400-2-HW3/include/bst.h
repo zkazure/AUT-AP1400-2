@@ -1,7 +1,8 @@
 #ifndef BST_H
 #define BST_H
 
-#include <iostream>
+#include <compare>
+#include <ostream>
 class BST {
   public:
     class Node {
