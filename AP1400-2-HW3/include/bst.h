@@ -20,10 +20,13 @@ class BST {
     };
 
   private:
-    Node *root;
+    Node *root{nullptr};
+
+    void destroy_subtree(Node *n);
 
   public:
     BST() = default;
+    ~BST();
 
     Node *&get_root() { return root; }
     // void bfs(std::function<void(Node *&node)> func);

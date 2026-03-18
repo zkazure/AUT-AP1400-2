@@ -76,7 +76,7 @@ TEST(HW3Test, TEST6) {
     BST bst{};
     EXPECT_EQ(bst.get_root(), nullptr);
 }
-/*
+
 TEST(HW3Test, TEST7) {
     BST bst{};
     bst.add_node(10);
@@ -86,7 +86,7 @@ TEST(HW3Test, TEST7) {
     EXPECT_EQ(bst.get_root()->left->value, 5);
     EXPECT_EQ(bst.get_root()->right->value, 20);
 }
-
+/*
 TEST(HW3Test, TEST8) {
     BST bst{};
     bst.add_node(25);
