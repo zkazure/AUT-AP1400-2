@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <iomanip>
 #include <queue>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -90,6 +91,29 @@ BST::Node **BST::find_parrent(int value) {
 
         if (curr && value == *curr) {
             return (ppre->left == prev) ? &(ppre->left) : &(ppre->right);
+        }
+    }
+    return nullptr;
+}
+
+BST::Node **BST::find_successor(int value) {
+    if (root == nullptr)
+        return nullptr;
+
+    std::stack<Node **> st;
+    Node **curr = &root;
+    Node **prev = nullptr;
+    while (*curr || st.empty() == false) {
+        if (*curr) {
+            st.push(curr);
+            curr = &(*curr)->left;
+        } else {
+            curr = st.top();
+            st.pop();
+            if (value == **curr)
+                return prev;
+            prev = curr;
+            curr = &(*curr)->right;
         }
     }
     return nullptr;

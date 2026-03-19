@@ -189,7 +189,7 @@ TEST(HW3Test, TEST14) {
     EXPECT_EQ((*node)->left->value, 7);
     EXPECT_EQ((*node)->right->value, 15);
 }
-/*
+
 TEST(HW3Test, TEST15) {
     BST bst{};
     bst.add_node(25);
@@ -201,12 +201,12 @@ TEST(HW3Test, TEST15) {
     bst.add_node(8);
     bst.add_node(9);
 
-    BST::Node** node{bst.find_successor(10)};
+    BST::Node **node{bst.find_successor(10)};
     EXPECT_EQ((*node)->value, 9);
     EXPECT_EQ((*node)->left, nullptr);
     EXPECT_EQ((*node)->right, nullptr);
 }
-
+/*
 TEST(HW3Test, TEST16) {
     BST bst{};
     bst.add_node(25);
