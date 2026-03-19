@@ -95,6 +95,7 @@ BST::Node **BST::find_parrent(int value) {
 }
 
 BST::Node **BST::find_successor(int value) {
+    // 中序遍历的前驱节点
     if (root == nullptr)
         return nullptr;
 
