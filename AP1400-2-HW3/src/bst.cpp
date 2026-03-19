@@ -118,6 +118,69 @@ BST::Node **BST::find_successor(int value) {
     return nullptr;
 }
 
+bool BST::delete_node(int value) {
+    if (root == nullptr)
+        return false;
+
+    Node **node = find_node(value);
+    if (node == nullptr)
+        return false;
+    Node *to_delete = *node;
+
+    Node **parr = find_parrent(value), **succ = find_successor(value);
+    if (succ == nullptr) {
+        if ((*node)->right) {
+            // only right side exist
+            if (parr) {
+                if ((*parr)->left == *node)
+                    (*parr)->left = *node;
+                else
+                    (*parr)->right = *node;
+            } else {
+                root = (*node)->right;
+            }
+        } else {
+            // leaf node
+            if (parr) {
+                if ((*parr)->left == *node)
+                    (*parr)->left = nullptr;
+                else
+                    (*parr)->right = nullptr;
+            } else {
+                root = nullptr;
+            }
+        }
+    } else {
+        if ((*node)->right) {
+            // both side exist
+            (*succ)->left = (*node)->left;
+            (*succ)->right = (*node)->right;
+            (*find_parrent((*succ)->value))->right = nullptr;
+
+            if (parr) {
+                if ((*parr)->left == *node)
+                    (*parr)->left = *succ;
+                else
+                    (*parr)->right = *succ;
+            } else {
+                root = *succ;
+            }
+        } else {
+            // only left side exist
+            if (parr) {
+                if ((*parr)->left == *node)
+                    (*parr)->left = (*node)->left;
+                else
+                    (*parr)->right = (*node)->left;
+            } else {
+                root = (*node)->left;
+            }
+        }
+    }
+    delete to_delete;
+    return true;
+}
+
 BST &BST::operator++() {
     bfs([](BST::Node *&node) { node->value += 1; });
     return *this;
