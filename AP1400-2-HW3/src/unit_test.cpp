@@ -391,7 +391,7 @@ TEST(HW3Test, TEST24) {
     EXPECT_EQ(bst.length(), copy.length());
     EXPECT_EQ(bst.get_root()->right->value, copy.get_root()->right->value);
 }
-/*
+
 TEST(HW3Test, TEST25) {
     BST bst{};
     bst.add_node(5);
@@ -405,7 +405,7 @@ TEST(HW3Test, TEST25) {
     equal = bst;
     EXPECT_EQ(bst.length(), equal.length());
     EXPECT_EQ(bst.get_root()->right->right->value,
-equal.get_root()->right->right->value);
+              equal.get_root()->right->right->value);
 }
 
 TEST(HW3Test, TEST26) {
@@ -422,7 +422,7 @@ TEST(HW3Test, TEST26) {
     bst = bst;
     EXPECT_EQ(bst.get_root()->right->left->value, 8);
 }
-
+/*
 TEST(HW3Test, TEST27) {
     BST bst{};
     bst.add_node(5);

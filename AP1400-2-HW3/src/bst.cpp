@@ -205,6 +205,11 @@ BST BST::operator++(int) {
     return tmp;
 }
 
+BST &BST::operator=(BST &other) {
+    this->root = clone(other.root);
+    return *this;
+}
+
 std::ostream &operator<<(std::ostream &os, const BST::Node &node) {
     os << std::left;
     os << std::setw(17) << &node;

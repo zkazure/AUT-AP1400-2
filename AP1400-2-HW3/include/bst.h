@@ -41,6 +41,7 @@ class BST {
 
     BST &operator++();
     BST operator++(int);
+    BST &operator=(BST &other);
 };
 
 std::ostream &operator<<(std::ostream &os, const BST::Node &node);
