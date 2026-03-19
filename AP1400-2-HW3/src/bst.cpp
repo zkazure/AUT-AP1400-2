@@ -33,6 +33,11 @@ BST::Node *BST::clone(const Node *other) const {
 
 BST::BST(const BST &other) { root = clone(other.root); }
 
+BST::BST(BST &&other) {
+    this->root = other.root;
+    other.root = nullptr;
+}
+
 BST::~BST() {
     std::vector<Node *> nodes;
     bfs([&nodes](Node *&node) { nodes.push_back(node); });

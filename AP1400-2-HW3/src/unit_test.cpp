@@ -422,7 +422,7 @@ TEST(HW3Test, TEST26) {
     bst = bst;
     EXPECT_EQ(bst.get_root()->right->left->value, 8);
 }
-/*
+
 TEST(HW3Test, TEST27) {
     BST bst{};
     bst.add_node(5);
@@ -430,13 +430,13 @@ TEST(HW3Test, TEST27) {
     bst.add_node(50);
 
     int test_value{bst.get_root()->right->value};
-    BST::Node* adddress_of_root{*bst.find_node(5)};
+    BST::Node *adddress_of_root{*bst.find_node(5)};
 
     BST move{std::move(bst)};
     EXPECT_EQ(adddress_of_root, move.get_root());
     EXPECT_EQ(test_value, move.get_root()->right->value);
 }
-
+/*
 TEST(HW3Test, TEST28) {
     BST bst{};
     bst.add_node(25);
@@ -448,7 +448,7 @@ TEST(HW3Test, TEST28) {
     bst.add_node(22);
 
     int test_value{bst.get_root()->left->right->value};
-    BST::Node* adddress_of_root{*bst.find_node(25)};
+    BST::Node *adddress_of_root{*bst.find_node(25)};
 
     BST move{};
     move = std::move(bst);

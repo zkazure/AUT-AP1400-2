@@ -28,6 +28,7 @@ class BST {
   public:
     BST() = default;
     BST(const BST &other);
+    BST(BST &&other);
     ~BST();
 
     Node *&get_root() { return root; }
