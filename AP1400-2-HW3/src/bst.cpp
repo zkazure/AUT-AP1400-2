@@ -128,14 +128,14 @@ bool BST::delete_node(int value) {
     Node *to_delete = *node;
 
     Node **parr = find_parrent(value), **succ = find_successor(value);
-    if (succ == nullptr) {
+    if ((*node)->left == nullptr) {
         if ((*node)->right) {
             // only right side exist
             if (parr) {
                 if ((*parr)->left == *node)
-                    (*parr)->left = *node;
+                    (*parr)->left = (*node)->right;
                 else
-                    (*parr)->right = *node;
+                    (*parr)->right = (*node)->right;
             } else {
                 root = (*node)->right;
             }

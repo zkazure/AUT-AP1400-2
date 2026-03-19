@@ -285,7 +285,7 @@ TEST(HW3Test, TEST19) {
     EXPECT_EQ(*bst.find_node(5), address_of_5);
     EXPECT_EQ(*bst.find_node(2), address_of_2);
 }
-/*
+
 TEST(HW3Test, TEST20) {
     BST bst{};
     bst.add_node(25);
@@ -334,7 +334,7 @@ TEST(HW3Test, TEST21) {
     EXPECT_EQ(*bst.find_node(60), address_of_60);
     EXPECT_EQ(*bst.find_node(75), address_of_75);
 }
-
+/*
 TEST(HW3Test, TEST22) {
     BST bst{};
     bst.add_node(25);
