@@ -81,18 +81,16 @@ BST::Node **BST::find_parrent(int value) {
     if (root == nullptr || value == *root)
         return nullptr;
 
-    BST::Node *curr = root;
-    BST::Node *prev = nullptr;
-    BST::Node *ppre = nullptr;
+    Node **curr = &root;
+    Node **prev = nullptr;
     while (curr) {
-        ppre = prev;
-        prev = curr;
-        curr = (value < *curr) ? curr->left : curr->right;
+        if (value == **curr)
+            return prev;
 
-        if (curr && value == *curr) {
-            return (ppre->left == prev) ? &(ppre->left) : &(ppre->right);
-        }
+        prev = curr;
+        curr = (value < **curr) ? &(*curr)->left : &(*curr)->right;
     }
+
     return nullptr;
 }
 
