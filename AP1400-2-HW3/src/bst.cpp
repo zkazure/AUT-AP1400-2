@@ -1,5 +1,6 @@
 #include "bst.h"
 #include <cstddef>
+#include <initializer_list>
 #include <iomanip>
 #include <queue>
 #include <stack>
@@ -36,6 +37,11 @@ BST::BST(const BST &other) { root = clone(other.root); }
 BST::BST(BST &&other) noexcept {
     this->root = other.root;
     other.root = nullptr;
+}
+
+BST::BST(std::initializer_list<int> init) {
+    for (auto value : init)
+        this->add_node(value);
 }
 
 BST::~BST() {

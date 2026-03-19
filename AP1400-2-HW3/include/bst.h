@@ -3,6 +3,7 @@
 
 #include <compare>
 #include <functional>
+#include <initializer_list>
 #include <ostream>
 class BST {
   public:
@@ -29,6 +30,7 @@ class BST {
     BST() = default;
     BST(const BST &other);
     BST(BST &&other) noexcept;
+    BST(std::initializer_list<int> init);
     ~BST();
 
     Node *&get_root() { return root; }
