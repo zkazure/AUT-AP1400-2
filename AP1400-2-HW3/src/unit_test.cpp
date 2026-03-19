@@ -462,7 +462,7 @@ TEST(HW3Test, TEST29) {
     EXPECT_EQ((*bst1.find_successor(5))->value, 4);
     EXPECT_EQ(bst2.length(), 10);
 }
-/*
+
 TEST(HW3Test, TEST30) {
     BST bst{5, 1, 10, 2, 8, 50, 4, 60};
     BST bst2{++bst};
@@ -472,7 +472,6 @@ TEST(HW3Test, TEST30) {
     EXPECT_EQ(bst2.get_root()->value, 6);
     EXPECT_EQ(bst.get_root()->right->right->right->value, 61);
     EXPECT_EQ(bst2.get_root()->right->right->right->value, 61);
-
 }
 
 TEST(HW3Test, TEST31) {
@@ -480,12 +479,11 @@ TEST(HW3Test, TEST31) {
     BST bst2{bst1++};
 
     std::vector<int> values1;
-    bst1.bfs([&values1](BST::Node*& node){values1.push_back(node->value);});
+    bst1.bfs([&values1](BST::Node *&node) { values1.push_back(node->value); });
 
     std::vector<int> values2;
-    bst2.bfs([&values2](BST::Node*& node){values2.push_back(node->value);});
+    bst2.bfs([&values2](BST::Node *&node) { values2.push_back(node->value); });
 
-    for(size_t i{}; i < values1.size(); i++)
-        EXPECT_EQ(values2[i], values1[i]-1);
+    for (size_t i{}; i < values1.size(); i++)
+        EXPECT_EQ(values2[i], values1[i] - 1);
 }
-*/
