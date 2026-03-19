@@ -153,9 +153,9 @@ bool BST::delete_node(int value) {
     } else {
         if ((*node)->right) {
             // both side exist
+            Node **succ_parr = find_parrent((*succ)->value);
             (*succ)->left = (*node)->left;
             (*succ)->right = (*node)->right;
-            (*find_parrent((*succ)->value))->right = nullptr;
 
             if (parr) {
                 if ((*parr)->left == *node)
@@ -165,6 +165,7 @@ bool BST::delete_node(int value) {
             } else {
                 root = *succ;
             }
+            (*succ_parr)->right = nullptr;
         } else {
             // only left side exist
             if (parr) {
