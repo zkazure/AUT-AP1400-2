@@ -21,17 +21,29 @@ void BST::bfs(std::function<void(BST::Node *&node)> func) const {
     }
 }
 
-size_t BST::length() const {
-    size_t len = 0;
-    bfs([&len](BST::Node *&node) { len++; });
-    return len;
+BST::Node *BST::clone(const Node *other) const {
+    if (other == nullptr)
+        return nullptr;
+
+    Node *node = new Node(other->value, nullptr, nullptr);
+    node->left = clone(other->left);
+    node->right = clone(other->right);
+    return node;
 }
+
+BST::BST(const BST &other) { root = clone(other.root); }
 
 BST::~BST() {
     std::vector<BST::Node *> nodes;
     bfs([&nodes](BST::Node *&node) { nodes.push_back(node); });
     for (auto node : nodes)
         delete node;
+}
+
+size_t BST::length() const {
+    size_t len = 0;
+    bfs([&len](BST::Node *&node) { len++; });
+    return len;
 }
 
 bool BST::add_node(int value) {

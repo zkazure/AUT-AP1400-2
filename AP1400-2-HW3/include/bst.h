@@ -23,8 +23,11 @@ class BST {
   private:
     Node *root{nullptr};
 
+    Node *clone(const Node *other) const;
+
   public:
     BST() = default;
+    BST(const BST &other);
     ~BST();
 
     Node *&get_root() { return root; }
