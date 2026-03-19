@@ -28,7 +28,7 @@ class BST {
   public:
     BST() = default;
     BST(const BST &other);
-    BST(BST &&other);
+    BST(BST &&other) noexcept;
     ~BST();
 
     Node *&get_root() { return root; }
@@ -43,6 +43,7 @@ class BST {
     BST &operator++();
     BST operator++(int);
     BST &operator=(BST &other);
+    BST &operator=(BST &&other) noexcept;
 };
 
 std::ostream &operator<<(std::ostream &os, const BST::Node &node);

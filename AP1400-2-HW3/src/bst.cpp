@@ -33,7 +33,7 @@ BST::Node *BST::clone(const Node *other) const {
 
 BST::BST(const BST &other) { root = clone(other.root); }
 
-BST::BST(BST &&other) {
+BST::BST(BST &&other) noexcept {
     this->root = other.root;
     other.root = nullptr;
 }
@@ -212,6 +212,12 @@ BST BST::operator++(int) {
 
 BST &BST::operator=(BST &other) {
     this->root = clone(other.root);
+    return *this;
+}
+
+BST &BST::operator=(BST &&other) noexcept {
+    this->root = other.root;
+    other.root = nullptr;
     return *this;
 }
 
