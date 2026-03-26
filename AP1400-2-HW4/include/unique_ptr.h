@@ -20,6 +20,11 @@ public:
         delete _p;
         _p = other;
     }
+    T* release() {
+        T *tmp = _p;
+        _p = nullptr;
+        return tmp;
+    }
 
     operator bool() const { return _p != nullptr; }
     T &operator*() {
@@ -27,6 +32,10 @@ public:
     }
     T *operator->() {
         return _p;
+    }
+    T &operator=(T *pointer) {
+        _p = pointer;
+        return *this;
     }
 };
 
