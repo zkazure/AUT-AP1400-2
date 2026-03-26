@@ -14,5 +14,15 @@ public:
     T* get() { return _p; };
 };
 
+template<typename T>
+UniquePtr<T> make_unique(T value) {
+    return UniquePtr<T>(value);
+}
+
+template<typename T>
+UniquePtr<T> make_unique(T* pointer) {
+    return UniquePtr<T>(pointer);
+}
+
 
 #endif //SHARED_PTR
