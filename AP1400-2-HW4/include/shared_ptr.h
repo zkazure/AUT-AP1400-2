@@ -8,10 +8,10 @@ private:
 
 public:
     UniquePtr() = default;
-    UniquePtr(T value) { _p = new T(value); };
-    UniquePtr(T* pointer) { _p = pointer; };
+    UniquePtr(T value) { _p = new T(value); }
+    UniquePtr(T* pointer) { _p = pointer; }
 
-    T* get() { return _p; };
+    T* get() { return _p; }
     void reset() {
         delete _p;
         _p = nullptr;
@@ -21,6 +21,7 @@ public:
         _p = other;
     }
 
+    operator bool() const { return _p != nullptr; }
     T &operator*() {
         return *_p;
     }
