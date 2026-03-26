@@ -16,6 +16,10 @@ public:
         delete _p;
         _p = nullptr;
     }
+    void reset(T* other) {
+        delete _p;
+        _p = other;
+    }
 
     T &operator*() {
         return *_p;
