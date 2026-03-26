@@ -23,7 +23,7 @@ TEST(HW4Test, TEST2) {
     UniquePtr<std::string> ptr2{make_unique<std::string>("hello world!")};
     EXPECT_EQ(*ptr2.get(), "hello world!");
 }
-/*
+
 TEST(HW4Test, TEST3) {
     UniquePtr<int> ptr1;
     EXPECT_EQ(ptr1.get(), nullptr);
@@ -31,7 +31,7 @@ TEST(HW4Test, TEST3) {
     UniquePtr<std::string> ptr2{};
     EXPECT_EQ(ptr2.get(), nullptr);
 }
-
+/*
 TEST(HW4Test, TEST4) {
     UniquePtr<int> ptr1{new int{10}};
     EXPECT_EQ(*ptr1, 10);
