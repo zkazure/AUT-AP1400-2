@@ -12,10 +12,14 @@ public:
     UniquePtr(T* pointer) { _p = pointer; };
 
     T* get() { return _p; };
-
     T &operator*() {
         return *(this->get());
     }
+    T *operator->() {
+        return this->get();
+    }
+
+
 };
 
 template<typename T>
