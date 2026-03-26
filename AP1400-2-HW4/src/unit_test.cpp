@@ -107,7 +107,7 @@ TEST(HW4Test, TEST12) {
     SharedPtr<std::string> ptr2{};
     EXPECT_EQ(ptr2.get(), nullptr);
 }
-/*
+
 TEST(HW4Test, TEST13) {
     SharedPtr<int> ptr1{make_shared<int>(10)};
     SharedPtr<int> ptr2{ptr1};
@@ -131,7 +131,7 @@ TEST(HW4Test, TEST14) {
     EXPECT_EQ(ptr2.use_count(), 3);
     EXPECT_EQ(ptr3.use_count(), 3);
 }
-
+/*
 TEST(HW4Test, TEST15) {
     SharedPtr<std::string> ptr1{make_shared<std::string>("hello world!")};
     {

@@ -9,18 +9,18 @@ private:
 public:
     UniquePtr() = default;
     UniquePtr(T value) { _p = new T(value); }
-    UniquePtr(T* pointer) { _p = pointer; }
+    UniquePtr(T *pointer) { _p = pointer; }
 
-    T* get() { return _p; }
+    T *get() { return _p; }
     void reset() {
         delete _p;
         _p = nullptr;
     }
-    void reset(T* other) {
+    void reset(T *other) {
         delete _p;
         _p = other;
     }
-    T* release() {
+    T *release() {
         T *tmp = _p;
         _p = nullptr;
         return tmp;
@@ -45,7 +45,7 @@ UniquePtr<T> make_unique(T value) {
 }
 
 template<typename T>
-UniquePtr<T> make_unique(T* pointer) {
+UniquePtr<T> make_unique(T *pointer) {
     return UniquePtr<T>(pointer);
 }
 
