@@ -20,26 +20,40 @@ public:
     }
     ~SharedPtr() {
         if (use_cnt) {
-            *use_cnt -= 1;
+            if (*use_cnt > 0) {
+                *use_cnt -= 1;
+            }
             if (*use_cnt == 0) {
                 delete _p;
-                delete use_cnt;
                 _p = nullptr;
-                use_cnt = nullptr;
             }
         }
     }
 
     T *get() { return _p; }
     void reset() {
-        delete _p;
+        if (use_cnt) {
+            if (*use_cnt == 0) {
+                delete _p;
+                delete use_cnt;
+                return;
+            }
+            *use_cnt -= 1;
+        }
+
         _p = nullptr;
-        if (use_cnt) *use_cnt -= 1;
     }
     void reset(T *other) {
-        delete _p;
-        use_cnt = 0;
+        if (use_cnt) {
+            if (*use_cnt == 0) {
+                delete _p;
+                delete use_cnt;
+            } else {
+                *use_cnt -= 1;
+            }
+        }
         _p = other;
+        use_cnt = new int(1);
     }
     T *release() {
         T *tmp = _p;
