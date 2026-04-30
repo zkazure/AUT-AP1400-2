@@ -76,7 +76,7 @@ TEST(HW5Test, TEST7) {
     EXPECT_EQ(copy.get_name(), "Cappuccino");
     EXPECT_DOUBLE_EQ(copy.price(), 65);
 }
-/*
+
 TEST(HW5Test, TEST8) {
     Cappuccino cappuccino;
     cappuccino.add_side_item(new Water{1});
@@ -92,7 +92,7 @@ TEST(HW5Test, TEST9) {
     equal = equal;
     EXPECT_EQ(equal.price(), 57);
 }
-
+/*
 TEST(HW5Test, TEST10) {
     Mocha mocha{};
     EXPECT_EQ(mocha.get_name(), "Mocha");

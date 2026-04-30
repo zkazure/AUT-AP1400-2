@@ -26,11 +26,11 @@ void Cappuccino::operator=(const Cappuccino &cap) {
 
     this->ingredients.clear();
     for (const auto &i : cap.ingredients) {
-        this->ingredients.push_back(i);
+        this->ingredients.push_back((Ingredient *)new SubIngredient(*i));
     }
     this->side_items.clear();
     for (const auto &s : cap.side_items) {
-        this->side_items.push_back(s);
+        this->side_items.push_back((Ingredient *)new SubIngredient(*s));
     }
     this->name = cap.name;
 }
