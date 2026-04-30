@@ -34,6 +34,7 @@ public:
     void reset() {
         delete _p;
         _p = nullptr;
+        if (use_cnt) *use_cnt -= 1;
     }
     void reset(T *other) {
         delete _p;
