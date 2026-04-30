@@ -6,20 +6,31 @@
 template <typename T>
 class SharedPtr {
 private:
-    UniquePtr<T> *_p = nullptr;
+    T *_p = nullptr;
     int *use_cnt;
 
 public:
-    SharedPtr() = default;
-    SharedPtr(T value): _p(new UniquePtr(value)), use_cnt(new int{1}) {}
-    SharedPtr(T *pointer): _p(new UniquePtr(pointer)), use_cnt(new int{1}) {}
+    SharedPtr() : _p(nullptr), use_cnt(nullptr) {}
+    SharedPtr(T value): _p(new T(value)), use_cnt(new int{1}) {}
+    SharedPtr(T *pointer): _p(pointer), use_cnt(new int{1}) {}
     SharedPtr(SharedPtr &other) {
         _p = other._p;
-        *other.use_cnt += 1;
-        use_cnt = (other.use_cnt);
+        use_cnt = other.use_cnt;
+        *use_cnt += 1;
+    }
+    ~SharedPtr() {
+        if (use_cnt) {
+            *use_cnt -= 1;
+            if (*use_cnt == 0) {
+                delete _p;
+                delete use_cnt;
+                _p = nullptr;
+                use_cnt = nullptr;
+            }
+        }
     }
 
-    T *get() { return (_p) ? _p->get() : nullptr; }
+    T *get() { return _p; }
     void reset() {
         delete _p;
         _p = nullptr;
@@ -34,11 +45,16 @@ public:
         _p = nullptr;
         return tmp;
     }
-    int use_count() {return *use_cnt;}
+    int use_count() {
+        if (use_cnt) {
+            return *use_cnt;
+        }
+        return 0;
+    }
 
     operator bool() const { return _p != nullptr; }
     T &operator*() {
-        return **_p;
+        return *_p;
     }
     T *operator->() {
         return _p;
