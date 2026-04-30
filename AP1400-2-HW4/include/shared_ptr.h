@@ -14,6 +14,8 @@ public:
     SharedPtr(T value): _p(new T(value)), use_cnt(new int{1}) {}
     SharedPtr(T *pointer): _p(pointer), use_cnt(new int{1}) {}
     SharedPtr(SharedPtr &other) {
+        if (&other == this) return;
+
         _p = other._p;
         use_cnt = other.use_cnt;
         *use_cnt += 1;
@@ -76,6 +78,14 @@ public:
     }
     T &operator=(T *pointer) {
         _p = pointer;
+        return *this;
+    }
+    SharedPtr &operator=(const SharedPtr &other) {
+        if (&other == this) return *this;
+        reset();
+        _p = other._p;
+        use_cnt = other.use_cnt;
+        *use_cnt += 1;
         return *this;
     }
 };
