@@ -42,7 +42,7 @@ TEST(HW5Test, TEST3) {
     ingredient = &water;
     EXPECT_EQ(ingredient->get_name(), "Water");
 }
-/*
+
 TEST(HW5Test, TEST4) {
     Cappuccino cappuccino{};
     EXPECT_EQ(cappuccino.get_name(), "Cappuccino");
@@ -68,7 +68,7 @@ TEST(HW5Test, TEST6) {
     delete esp;
     EXPECT_EQ(sides.size(), 0);
 }
-
+/*
 TEST(HW5Test, TEST7) {
     Cappuccino cappuccino;
     cappuccino.add_side_item(new Chocolate{2});

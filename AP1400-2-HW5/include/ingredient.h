@@ -11,10 +11,13 @@ public:
 
     double price() { return units * price_unit; }
 
+    virtual ~Ingredient() = default;
 
 protected:
     Ingredient(double price_unit, size_t units)
     : price_unit(price_unit), units(units) {}
+    Ingredient(const Ingredient &other)
+    : price_unit(other.price_unit), units(other.units), name(other.name) {}
 
     double price_unit;
     size_t units;

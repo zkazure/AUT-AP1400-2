@@ -9,6 +9,7 @@ public:
     : Ingredient(price_unit, units) {
         this->name = name;
     }
+    SubIngredient(const Ingredient &other) : Ingredient(other) {}
 
     virtual std::string get_name() { return name; }
 };
