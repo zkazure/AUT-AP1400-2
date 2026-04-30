@@ -11,7 +11,7 @@ Cappuccino::Cappuccino()
 Cappuccino::Cappuccino(const Cappuccino &cap)
 : EspressoBased(cap) {
     for (const auto &s : cap.side_items) {
-        this->side_items.push_back(s);
+        this->side_items.push_back((Ingredient *)new SubIngredient(*s));
     }
     this->name = cap.name;
 }
